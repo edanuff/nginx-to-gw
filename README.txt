@@ -12,7 +12,7 @@ using Apigee's cloud services.
 
 How it works:
 
-1. Requests to Nginx are forwarded to the Apigee Gateway will all original
+1. Requests to Nginx are forwarded to the Apigee Gateway with all original
    request headers included but without any body contents
 
 2. The Gateway sees a normal request and acts on it, applying the appropriate
