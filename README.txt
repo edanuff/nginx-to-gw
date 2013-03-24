@@ -39,9 +39,9 @@ Usage:
 
    then requests to:
 
-     localhost:8081/my/resource
+     http://localhost:8081/my/resource
 
-   would go to:
+   would cause a request to be made (minus any request body content) to:
 
      http://apigee-ed-test.apigee.net/agent-endpoint/my/resource
 
