@@ -9,13 +9,57 @@ limiting, and analytics without having the traffic proxied through the Apigee
 gateway. Useful in situations where one wants to control internal API traffic
 using Apigee's cloud services.
 
+
+How it works:
+
+1. Requests to Nginx are forwarded to the Apigee Gateway will all original
+   request headers included but without any body contents
+
+2. The Gateway sees a normal request and acts on it, applying the appropriate
+   policies based on configuration and resource paths
+
+3. If the Gateway returns error to Nginx, Nginx ends the request, and returns
+   to caller all the content and headers the Gateway returned to it
+
+4. If no error is returned by the Gateway, the Nginx script appends the
+   appropriate headers returned by the Gateway to the Nginx response and then
+   calls the destination API server.  The caller gets the API server's
+   response along with any headers sent by the Gateway.
+
+
 Usage:
 
-Change the indicated destination API server URL and the gateway API URL in the
-gw.conf file.
+1. Change the indicated destination API server URL and the gateway API URL in
+   the gw.conf file.
 
-Either include the gw.conf from your nginx.conf or start nginx with the -c
-argument pointing to gw.conf
+2. Set up appropriate policies for your gateway API.  For example, if your
+   gateway API url was:
+
+     http://apigee-ed-test.apigee.net/agent-endpoint
+
+   then requests to:
+
+     localhost:8081/my/resource
+
+   would go to:
+
+     http://apigee-ed-test.apigee.net/agent-endpoint/my/resource
+
+   So, you, if you wanted to set a custom header for that resource, you'd
+   go into the Gateway admin portal and for the API named "agent-endpoint",
+   in the organization "apigee-ed", you'd set up a resource called
+   "my/resource" and configure a policy to return that header.
+
+   Any errors returned by Gateway policies will cause Nginx to not continue
+   execution of the request.
+
+   In normal usage, your API (for example, "agent-endpoint"), will not have
+   a target configured for it, since the proxying of the target destination
+   is handled in Nginx.
+
+3. Either include the gw.conf from your nginx.conf or start nginx with the -c
+   argument pointing to gw.conf
+
 
 Requirements:
 
