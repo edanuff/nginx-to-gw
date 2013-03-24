@@ -8,6 +8,11 @@ limiting, and analytics without having the traffic proxied through the Apigee
 gateway. Useful in situations where one wants to control internal API traffic
 using Apigee's cloud services.
 
+Usage:
+
+Change the indicated destination API server URL and the gateway API URL in the
+gw.conf file.
+
 Requirements:
 
 OpenResty
