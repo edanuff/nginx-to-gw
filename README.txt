@@ -15,6 +15,5 @@ gw.conf file.
 
 Requirements:
 
-OpenResty
-LuaSocket
+Nginx with HttpLuaModule or OpenResty (recommended)
 
