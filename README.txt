@@ -28,12 +28,12 @@ For OSX users new to Nginx, here's the quickstart:
 
 2. Install Lua
 
-  brew install lua
+   brew install lua
 
 3. Use homebrew to install openresty:
 
-  brew tap nathantsoi/homebrew-openresty
-  brew install open-resty
+   brew tap nathantsoi/homebrew-openresty
+   brew install open-resty
 
 4. Clone the repo locally and then go to the repo directory and use the start
    script:
