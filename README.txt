@@ -46,10 +46,10 @@ Usage:
 
      http://apigee-ed-test.apigee.net/agent-endpoint/my/resource
 
-   So, you, if you wanted to set a custom header for that resource, you'd
-   go into the Gateway admin portal and for the API named "agent-endpoint",
-   in the organization "apigee-ed", you'd set up a resource called
-   "my/resource" and configure a policy to return that header.
+   So, if you wanted to set a custom header for that resource, you'd go into
+   the Gateway admin portal and for the API named "agent-endpoint", in the
+   organization "apigee-ed", you'd set up a resource called "my/resource" and
+   configure a policy to return that header.
 
    Any status codes other than 200 returned by Gateway policies will cause
    Nginx to interrupt execution of the request, so policies such as OAuth
@@ -61,7 +61,13 @@ Usage:
    is handled in Nginx.
 
 3. Either include the gw.conf from your nginx.conf or start nginx with the -c
-   argument pointing to gw.conf
+   argument pointing to gw.conf.  For example, for Nginx:
+
+     nginx -c `pwd`/gw.conf
+
+   If using the Open Resty build of Nginx, use that instead:
+
+     openresty -c `pwd`/gw.conf
 
 
 Requirements:
