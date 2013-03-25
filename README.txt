@@ -18,8 +18,9 @@ How it works:
 2. The Gateway sees a normal request and acts on it, applying the appropriate
    policies based on configuration and resource paths
 
-3. If the Gateway returns error to Nginx, Nginx ends the request, and returns
-   to caller all the content and headers the Gateway returned to it
+3. If the Gateway returns an error status code to Nginx, Nginx ends the
+   request, and returns to the caller all the content and headers the Gateway
+   returned to it
 
 4. If no error is returned by the Gateway, the Nginx script appends the
    appropriate headers returned by the Gateway to the Nginx response and then
@@ -50,8 +51,10 @@ Usage:
    in the organization "apigee-ed", you'd set up a resource called
    "my/resource" and configure a policy to return that header.
 
-   Any errors returned by Gateway policies will cause Nginx to not continue
-   execution of the request.
+   Any status codes other than 200 returned by Gateway policies will cause
+   Nginx to interrupt execution of the request, so policies such as OAuth
+   can protect access to Nginx-proxied API resources in effectively the
+   same fashion they currently do.
 
    In normal usage, your API (for example, "agent-endpoint"), will not have
    a target configured for it, since the proxying of the target destination
