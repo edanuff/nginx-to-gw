@@ -1,7 +1,7 @@
 Nginx Reverse Proxy access controlled by Apigee Gateway
 -------------------------------------------------------
 
-This is an Ngina reverse proxy configuration that uses a Lua script to check
+This is an Nginx reverse proxy configuration that uses a Lua script to check
 an Apigee Gateway URL before allowing the proxy url to be accessed.
 
 This will allow a local Nginx proxy to still use Apigee key management, rate
