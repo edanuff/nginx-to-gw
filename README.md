@@ -13,7 +13,7 @@ gateway. Useful in situations where one wants to control internal API traffic
 using Apigee's cloud services.
 
 
-How it works:
+**How it works:**
 
 1. Requests to Nginx are forwarded to the Apigee Gateway with all original request headers included but without any body contents
 
@@ -24,7 +24,7 @@ How it works:
 4. If no error is returned by the Gateway, the Nginx script appends the appropriate headers returned by the Gateway to the Nginx response and then calls the destination API server.  The caller gets the API server's response along with any headers sent by the Gateway.
 
 
-Usage:
+**Usage:**
 
 1. Change the indicated destination API server URL and the gateway API URL in the gw.conf file.
 
@@ -55,7 +55,7 @@ Usage:
 	     openresty -c `pwd`/gw.conf
 
 
-Requirements:
+**Requirements:**
 
 Nginx with HttpLuaModule or OpenResty (recommended)
 
