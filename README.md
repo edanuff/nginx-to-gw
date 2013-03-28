@@ -66,28 +66,28 @@ For OSX users new to Nginx, here's the quickstart:
 
 2. Install Lua
 
-	   brew install lua
+		brew install lua
 
 3. Use homebrew to install openresty:
 
-	   brew tap nathantsoi/homebrew-openresty
-	   brew install open-resty
+		brew tap nathantsoi/homebrew-openresty
+		brew install open-resty
 
 4. Clone the repo locally and then go to the repo directory and use the start script:
 
-	   git clone https://github.com/edanuff/nginx-to-gw.git
-	   cd nginx-to-gw
-	   ./bin/start.sh
+		git clone https://github.com/edanuff/nginx-to-gw.git
+		cd nginx-to-gw
+		./bin/start.sh
 
    The proxy will be listening on localhost:8081
 
 5. To stop the server, use the stop script:
 
-	   ./bin/start.sh
+		./bin/start.sh
 
 6. To reload the server conf, use the reload script:
 
-	   ./bin/reload.sh
+		./bin/reload.sh
 
 The start, stop, and reload scripts in bin/ are provided for convenience when using Open Resty and have no other importance.
 
